@@ -35,7 +35,10 @@
   const cars = ref<Car[]>([])
   
   onMounted(async () => {
-    const response = await axios.get('/src/assets/data/data_sportscars.json')
+    const response = await axios.get('/data_sportscars.json')
+    /* Note2Self: Since the 'src/assets/data/' path doesn't get included in the build properly, 
+    the data dynamic components of the app fails AFTER build.  Works fine on dev testing.    */
+    // const response = await axios.get('/src/assets/data/data_sportscars.json') 
     cars.value = response.data
   })
   </script>
